@@ -15,7 +15,7 @@ class MovieViewController: UIViewController {
 
     override func viewDidLoad() {
         setUpUI()
-        movieStore.fetchMovieMetadata(byMovieListType: .nowPlaying) { (movieResult) in
+        movieStore.fetchMovieMetadata(by: .nowPlaying) { (movieResult) in
             switch movieResult {
             case .success(let movies):
                 print("Count: \(movies.count)")

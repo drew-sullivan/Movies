@@ -104,7 +104,7 @@ struct MoviesAPI {
 
     /// Creates the URL needed to access a movie poster
     /// - Parameter posterPath: posterPath from Movie object
-    static func moviePosterImageURL(fromPosterPath posterPath: String) -> URL {
+    static func moviePosterImageURL(from posterPath: String) -> URL {
         return URL(string: "\(imageBaseURLString)\(posterPath)")!
     }
 

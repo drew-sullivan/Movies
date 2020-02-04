@@ -24,7 +24,7 @@ struct Movie: Decodable {
     let overview: String
     let releaseDate: String
     var posterImageURL: URL {
-        return MoviesAPI.moviePosterImageURL(fromPosterPath: posterPath)
+        return MoviesAPI.moviePosterImageURL(from: posterPath)
     }
 
     enum CodingKeys: String, CodingKey {
