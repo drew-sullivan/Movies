@@ -27,7 +27,7 @@ enum PhotoError: Error {
     case imageCreationError
 }
 
-/// Abstracting for testing
+/// Abstracted for testing
 protocol SessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }

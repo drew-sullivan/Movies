@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MovieListType {
+enum MovieListType: CaseIterable {
     case topRated
     case upcoming
     case nowPlaying

@@ -10,19 +10,30 @@ import UIKit
 
 class MovieViewController: UIViewController {
 
-    var movieStore: MovieStore!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
+    var movieStore: MovieStore!
+    let movieDataSource = MovieDataSource()
 
     override func viewDidLoad() {
         setUpUI()
-        movieStore.fetchMovieMetadata(by: .nowPlaying) { (movieResult) in
-            switch movieResult {
-            case .success(let movies):
-                print("Count: \(movies.count)")
-            case .failure(let error):
-                self.notifyUser(ofError: error)
+        populateDataSource()
+    }
+
+    private func populateDataSource() {
+        for movieListType in MovieListType.allCases {
+            movieStore.fetchMovieMetadata(by: movieListType) { (movieResult) in
+                switch movieResult {
+                    case .success(let movies):
+                        print("Count: \(movies.count)")
+                        let movieSection = MovieSection(name: movieListType, movies: movies)
+                        self.movieDataSource.moviesBySection.append(movieSection)
+                    case .failure(let error):
+                        self.notifyUser(ofError: error)
+                        self.movieDataSource.moviesBySection = [MovieSection]()
+                }
             }
         }
+        self.moviesCollectionView.reloadData()
     }
 
     private func notifyUser(ofError error: Error) {
@@ -30,7 +41,7 @@ class MovieViewController: UIViewController {
     }
 
     private func setUpUI() {
-//        moviesCollectionView.dataSource =
+        moviesCollectionView.dataSource = movieDataSource
         moviesCollectionView.delegate = self
     }
     
