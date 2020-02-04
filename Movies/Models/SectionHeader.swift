@@ -14,7 +14,6 @@ class SectionHeader: UICollectionReusableView {
 
     func config(_ indexPath: IndexPath) {
         sectionTitle.textColor = .black
-        sectionTitle.text = "Section"
     }
     
 }
