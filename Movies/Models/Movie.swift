@@ -23,6 +23,9 @@ struct Movie: Decodable {
     let voteAverage: Double
     let overview: String
     let releaseDate: String
+    var posterImageURL: URL {
+        return MoviesAPI.moviePosterImageURL(fromPosterPath: posterPath)
+    }
 
     enum CodingKeys: String, CodingKey {
         case popularity

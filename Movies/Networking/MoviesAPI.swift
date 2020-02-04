@@ -35,14 +35,49 @@ struct MoviesAPI {
     }
 
     /// Constants
-    private static let baseURLString = "https://api.themoviedb.org/3/discover/movie"
+    private static let searchingBaseURLString = "https://api.themoviedb.org/3/discover/movie"
+    private static let imageBaseURLString = "https://image.tmdb.org/t/p/w500"
     private static let apiKey = "66be1732d5639d9978db6f80685fcccd"
     private static let region = "US"
 
+    /// Current top-rated movies
+    static var topRatedMoviesURL: URL {
+        let params = [
+            MovieQueryKey.primaryReleaseYear: MovieQueryValue.currentYear,
+            MovieQueryKey.sortBy: MovieQueryValue.sortByVoteAverage
+        ]
+        return buildSearchURL(parameters: params)
+    }
+
+    /// Upcoming movies
+    static var upcomingMoviesURL: URL {
+        let params = [
+            MovieQueryKey.primaryReleaseDateGreaterThanOrEqualTo: MovieQueryValue.oneMonthInTheFuture
+        ]
+        return buildSearchURL(parameters: params)
+    }
+
+
+    /// Movies playing now
+    static var nowPlayingMoviesURL: URL {
+        let params = [
+            MovieQueryKey.primaryReleaseDateGreaterThanOrEqualTo: MovieQueryValue.threeMonthsInThePast
+        ]
+        return buildSearchURL(parameters: params)
+    }
+
+    /// Popular movies
+    static var popularMoviesURL: URL {
+        let params = [
+            MovieQueryKey.sortBy: MovieQueryValue.sortByPopularity
+        ]
+        return buildSearchURL(parameters: params)
+    }
+
     /// Helper for building URLs with common data
     /// - Parameter parameters: Key/Value pairs added to the query string of the URL being constructed
-    private static func buildURL(parameters: [MovieQueryKey: MovieQueryValue]?) -> URL {
-        var components = URLComponents(string: baseURLString)!
+    private static func buildSearchURL(parameters: [MovieQueryKey: MovieQueryValue]?) -> URL {
+        var components = URLComponents(string: searchingBaseURLString)!
 
         var queryItems = [URLQueryItem]()
 
@@ -67,40 +102,14 @@ struct MoviesAPI {
         return components.url!
     }
 
-    /// Current top-rated movies
-    static var topRatedMoviesURL: URL {
-        let params = [
-            MovieQueryKey.primaryReleaseYear: MovieQueryValue.currentYear,
-            MovieQueryKey.sortBy: MovieQueryValue.sortByVoteAverage
-        ]
-        return buildURL(parameters: params)
+    /// Creates the URL needed to access a movie poster
+    /// - Parameter posterPath: posterPath from Movie object
+    static func moviePosterImageURL(fromPosterPath posterPath: String) -> URL {
+        return URL(string: "\(imageBaseURLString)\(posterPath)")!
     }
 
-    /// Upcoming movies
-    static var upcomingMoviesURL: URL {
-        let params = [
-            MovieQueryKey.primaryReleaseDateGreaterThanOrEqualTo: MovieQueryValue.oneMonthInTheFuture
-        ]
-        return buildURL(parameters: params)
-    }
-
-
-    /// Movies playing now
-    static var nowPlayingMoviesURL: URL {
-        let params = [
-            MovieQueryKey.primaryReleaseDateGreaterThanOrEqualTo: MovieQueryValue.threeMonthsInThePast
-        ]
-        return buildURL(parameters: params)
-    }
-
-    /// Popular movies
-    static var popularMoviesURL: URL {
-        let params = [
-            MovieQueryKey.sortBy: MovieQueryValue.sortByPopularity
-        ]
-        return buildURL(parameters: params)
-    }
-
+    /// Converts JSON to Movie objects
+    /// - Parameter data: jsonData object
     static func movies(_ data: Data) -> MovieResult {
         do {
             let decoder = JSONDecoder()
