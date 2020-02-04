@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie: Decodable, Equatable {
     let posterPath: String?
     let genreIDS: [Int]?
     let title: String?
     let overview: String?
     var posterImageURL: URL {
-        return MoviesAPI.moviePosterImageURL(from: posterPath!)
+        return MoviesAPI.moviePosterImageURL(from: posterPath)
     }
 
     enum CodingKeys: String, CodingKey {
@@ -23,19 +23,20 @@ struct Movie: Decodable {
         case title
         case overview
     }
+
+    static func ==(lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.posterPath == rhs.posterPath &&
+               lhs.genreIDS == rhs.genreIDS &&
+               lhs.title == rhs.title &&
+               lhs.overview == rhs.overview
+    }
 }
 
 /// Wrapper for matching returned JSON
 struct MoviesMeta: Decodable {
-    let page: Int
-    let totalResults: Int
-    let totalPages: Int
     let movies: [Movie]
 
     enum CodingKeys: String, CodingKey {
-        case page
-        case totalResults = "total_results"
-        case totalPages = "total_pages"
         case movies = "results"
     }
 }

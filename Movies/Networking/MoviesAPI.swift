@@ -104,8 +104,11 @@ struct MoviesAPI {
 
     /// Creates the URL needed to access a movie poster
     /// - Parameter posterPath: posterPath from Movie object
-    static func moviePosterImageURL(from posterPath: String) -> URL {
-        return URL(string: "\(imageBaseURLString)\(posterPath)")!
+    static func moviePosterImageURL(from posterPath: String?) -> URL {
+        guard let path = posterPath else {
+            return URL(string: "https://via.placeholder.com/150/0000FF/FFFFFF+?Text=No+Poster+Available")!
+        }
+        return URL(string: "\(imageBaseURLString)\(path)")!
     }
 
     /// Converts JSON to Movie objects

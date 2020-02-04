@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C831AF7723E9E62A00FFFD7A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7623E9E62A00FFFD7A /* MovieCell.swift */; };
 		C8BD938B23E9C95300E9FC02 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */; };
 		C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */; };
 		C8D5BE0C23E8DE06002BFEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C831AF7623E9E62A00FFFD7A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
 		C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSection.swift; sourceTree = "<group>"; };
 		C8D5BE0823E8DE06002BFEA4 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				C8E9B66F23E91AF400D5D941 /* Movie.swift */,
 				C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */,
 				C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */,
+				C831AF7623E9E62A00FFFD7A /* MovieCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			files = (
 				C8E9B66B23E919CA00D5D941 /* MovieStore.swift in Sources */,
 				C8D5BE0C23E8DE06002BFEA4 /* AppDelegate.swift in Sources */,
+				C831AF7723E9E62A00FFFD7A /* MovieCell.swift in Sources */,
 				C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */,
 				C8D5BE0E23E8DE06002BFEA4 /* SceneDelegate.swift in Sources */,
 				C8D5BE3C23E8E39E002BFEA4 /* MoviesAPI.swift in Sources */,
