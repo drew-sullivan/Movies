@@ -10,7 +10,7 @@ import UIKit
 
 class ImageCache {
 
-    let cache = NSCache<NSString,UIImage>()
+    let cache = NSCache<NSString, UIImage>()
 
     func setImage(_ image: UIImage, forKey key: URL) {
         cache.setObject(image, forKey: key.absoluteString as NSString)

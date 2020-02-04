@@ -15,20 +15,13 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var movieOverviewLabel: UILabel!
     @IBOutlet weak var movieGenreLabel: UILabel!
 
-    var movie: Movie! {
-        didSet {
-            movieTitleLabel.text = movie.title
-            movieOverviewLabel.text = movie.overview
-            movieGenreLabel.text = "\(movie.genreIDS)"
-        }
-    }
-    
+    var viewModel: DetailViewModel!
     var movieStore: MovieStore!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        movieStore.fetchPosterImage(for: movie) { (imageResult) in
+        movieStore.fetchPosterImage(for: viewModel.movie) { (imageResult) in
             switch imageResult {
                 case .success(let image):
                     self.moviePosterImageView.image = image

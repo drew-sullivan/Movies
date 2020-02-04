@@ -52,7 +52,8 @@ class MovieViewController: UIViewController {
             if let selectedIndexPath = moviesCollectionView.indexPathsForSelectedItems?.first {
                 let movie = movieDataSource.moviesBySection[selectedIndexPath.section].movies[selectedIndexPath.row]
                 let destinationVC = segue.destination as! DetailMovieViewController
-                destinationVC.movie = movie
+                let detailViewModel = DetailViewModel(movie: movie)
+                destinationVC.viewModel = detailViewModel
                 destinationVC.movieStore = movieStore
             }
             default: preconditionFailure("Unexpected segue identifier.")
