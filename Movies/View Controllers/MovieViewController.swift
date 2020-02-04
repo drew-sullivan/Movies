@@ -39,6 +39,11 @@ class MovieViewController: UIViewController {
         }
     }
 
+    private func notifyUser(of error: Error) {
+        let okAlertController = UIAlertController.errorWarning(given: error)
+        self.present(okAlertController, animated: true)
+    }
+
     private func notifyUser(ofError error: Error) {
         let alertController = UIAlertController(title: "Error:", message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -57,22 +62,6 @@ class MovieViewController: UIViewController {
                 destinationVC.movieStore = movieStore
             }
             default: preconditionFailure("Unexpected segue identifier.")
-        }
-    }
-    
-}
-
-extension MovieViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let movie = movieDataSource.moviesBySection[indexPath.section].movies[indexPath.row]
-        movieStore.fetchPosterImage(for: movie) { (imageResult) in
-            guard let movieIndex = self.movieDataSource.moviesBySection[indexPath.section].movies.firstIndex(of: movie),
-                case let .success(image) = imageResult else { return }
-            let movieIndexPath = IndexPath(item: movieIndex, section: indexPath.section)
-            if let cell = self.moviesCollectionView.cellForItem(at: movieIndexPath) as? MovieCell {
-                cell.update(with: image, movie: movie)
-            }
         }
     }
     
