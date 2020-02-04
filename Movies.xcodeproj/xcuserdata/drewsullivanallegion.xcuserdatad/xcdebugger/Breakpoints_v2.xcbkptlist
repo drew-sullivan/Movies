@@ -20,5 +20,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "184F5F23-2D96-4C46-8506-0AEB2576EE5E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesTests/MovieStoreTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "test_fetchingMovieMetadata_whenResponseHasAnError_returnsError()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "184F5F23-2D96-4C46-8506-0AEB2576EE5E - 4343895e7f9b8b7f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviesTests.MovieStoreTests.test_fetchingMovieMetadata_whenResponseHasAnError_returnsError() -&gt; ()"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drewsullivanallegion/coding_stuff/Movies/MoviesTests/MovieStoreTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "1035">
+               </Location>
+               <Location
+                  uuid = "184F5F23-2D96-4C46-8506-0AEB2576EE5E - ba6eae711ea9a290"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Movies.MovieResult) -&gt; () in MoviesTests.MovieStoreTests.test_fetchingMovieMetadata_whenResponseHasAnError_returnsError() -&gt; ()"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drewsullivanallegion/coding_stuff/Movies/MoviesTests/MovieStoreTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "159">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20167D24-4209-43F5-A825-70B042663B95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesTests/MovieStoreTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "test_fetchingMovieMetadata_whenResponseHasAnError_returnsError()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20167D24-4209-43F5-A825-70B042663B95 - ba6eae711ea9a290"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Movies.MovieResult) -&gt; () in MoviesTests.MovieStoreTests.test_fetchingMovieMetadata_whenResponseHasAnError_returnsError() -&gt; ()"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drewsullivanallegion/coding_stuff/Movies/MoviesTests/MovieStoreTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "197">
+               </Location>
+               <Location
+                  uuid = "20167D24-4209-43F5-A825-70B042663B95 - ba6eae711ea9a290"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Movies.MovieResult) -&gt; () in MoviesTests.MovieStoreTests.test_fetchingMovieMetadata_whenResponseHasAnError_returnsError() -&gt; ()"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drewsullivanallegion/coding_stuff/Movies/MoviesTests/MovieStoreTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "222">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

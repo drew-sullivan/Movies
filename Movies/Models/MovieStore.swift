@@ -3,7 +3,7 @@
 //  Movies
 //
 //  Created by Drew Sullivan on 2/3/20.
-//  Copyright © 2020 Allegion, LLC. All rights reserved.
+//  Copyright © 2020 Drew Sullivan. All rights reserved.
 //
 
 import UIKit
@@ -27,6 +27,7 @@ enum PhotoError: Error {
     case imageCreationError
 }
 
+/// Abstracting for testing
 protocol SessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
@@ -48,18 +49,15 @@ class MovieStore {
         }
 
         let dataTask = session.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                completion(.failure(WebServiceError.responseError))
-                return
-            }
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(.failure(WebServiceError.responseError))
+                    return
+                }
 
-            guard let data = data else {
-                completion(.failure(WebServiceError.dataEmptyError))
-                return
+                let movieResult = self.processMoviesRequest(data, error: error)
+                completion(movieResult)
             }
-            
-            let movieResult = self.processMoviesRequest(data)
-            completion(movieResult)
         }
         dataTask.resume()
     }
@@ -67,33 +65,39 @@ class MovieStore {
     func fetchPosterImage(for movie: Movie, completion: @escaping (ImageResult) -> Void) {
         let posterImageURL = movie.posterImageURL
         let dataTask = session.dataTask(with: posterImageURL) { (data, response, error) in
-            guard error == nil else {
-                completion(.failure(WebServiceError.responseError))
-                return
-            }
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(.failure(WebServiceError.responseError))
+                    return
+                }
 
-            guard let data = data else {
-                completion(.failure(WebServiceError.dataEmptyError))
-                return
+                let imageResult = self.processImageRequest(data, error: error)
+                completion(imageResult)
             }
-
-            let imageResult = self.processImageRequest(data)
-            completion(imageResult)
         }
         dataTask.resume()
     }
 
-    private func processMoviesRequest(_ jsonData: Data) -> MovieResult {
-        return MoviesAPI.movies(jsonData)
+    private func processMoviesRequest(_ jsonData: Data?, error: Error?) -> MovieResult {
+        guard let data = jsonData else {
+            return .failure(WebServiceError.dataEmptyError)
+        }
+        return MoviesAPI.movies(data)
     }
 
-    private func processImageRequest(_ jsonData: Data) -> ImageResult {
-        guard let image = UIImage(data: jsonData) else {
+    private func processImageRequest(_ jsonData: Data?, error: Error?) -> ImageResult {
+        guard let data = jsonData else {
+            return .failure(WebServiceError.dataEmptyError)
+        }
+
+        guard let image = UIImage(data: data) else {
             return .failure(PhotoError.imageCreationError)
         }
+
         return .success(image)
     }
 
 }
 
+/// For testing
 extension URLSession: SessionProtocol { }
