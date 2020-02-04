@@ -100,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C831AF8423EA28CF00FFFD7A /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				C831AF7E23EA168700FFFD7A /* DetailViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		C8D5BDFF23E8DE06002BFEA4 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +131,7 @@
 		C8D5BE0A23E8DE06002BFEA4 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				C831AF8423EA28CF00FFFD7A /* View Models */,
 				C8E9B67323E91E6500D5D941 /* View Controllers */,
 				C8E9B66C23E919EB00D5D941 /* Models */,
 				C8D5BE3F23E8E559002BFEA4 /* Networking */,
@@ -173,7 +182,6 @@
 				C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */,
 				C831AF7623E9E62A00FFFD7A /* MovieCell.swift */,
 				C831AF7823E9F65500FFFD7A /* SectionHeader.swift */,
-				C831AF7E23EA168700FFFD7A /* DetailViewModel.swift */,
 				C831AF8223EA1D0400FFFD7A /* Genre.swift */,
 			);
 			path = Models;

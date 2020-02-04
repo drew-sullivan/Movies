@@ -16,7 +16,7 @@ class MoviesAPITests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        movie = Movie(popularity: 0.0, voteCount: 0, video: false, posterPath: "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", id: 1, adult: false, backdropPath: "", originalLanguage: OriginalLanguage.en, originalTitle: "", genreIDS: [Int](), title: "", voteAverage: 0.0, overview: "", releaseDate: "")
+        movie = Movie(posterPath: "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", genreIDS: [Int](), title: "", overview: "")
     }
 
     override func tearDown() {
