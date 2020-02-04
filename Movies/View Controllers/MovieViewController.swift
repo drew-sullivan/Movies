@@ -15,7 +15,11 @@ class MovieViewController: UIViewController {
     let movieDataSource = MovieDataSource()
 
     override func viewDidLoad() {
-        setUpUI()
+        super.viewDidLoad()
+
+        moviesCollectionView.dataSource = movieDataSource
+        moviesCollectionView.delegate = self
+
         populateDataSource()
     }
 
@@ -31,18 +35,13 @@ class MovieViewController: UIViewController {
                         self.notifyUser(ofError: error)
                         self.movieDataSource.moviesBySection = [MovieSection]()
                 }
+                self.moviesCollectionView.reloadData()
             }
         }
-        self.moviesCollectionView.reloadData()
     }
 
     private func notifyUser(ofError error: Error) {
-
-    }
-
-    private func setUpUI() {
-        moviesCollectionView.dataSource = movieDataSource
-        moviesCollectionView.delegate = self
+        print(error)
     }
     
 }

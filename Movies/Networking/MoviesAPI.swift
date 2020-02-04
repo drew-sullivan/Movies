@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum MovieListType: CaseIterable {
-    case topRated
-    case upcoming
-    case nowPlaying
-    case popular
+enum MovieListType: String, CaseIterable {
+    case topRated = "Top Rated"
+    case upcoming = "Upcoming"
+    case nowPlaying = "Now Playing"
+    case popular = "Popular"
 }
 
 struct MoviesAPI {

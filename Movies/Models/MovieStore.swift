@@ -49,13 +49,13 @@ class MovieStore {
         }
 
         let dataTask = session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard error == nil else {
-                    completion(.failure(WebServiceError.responseError))
-                    return
-                }
+            guard error == nil else {
+                completion(.failure(WebServiceError.responseError))
+                return
+            }
 
-                let movieResult = self.processMoviesRequest(data, error: error)
+            let movieResult = self.processMoviesRequest(data, error: error)
+            DispatchQueue.main.async {
                 completion(movieResult)
             }
         }
