@@ -134,39 +134,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8p-5J-qtM">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q8p-5J-qtM">
+                                <rect key="frame" x="10" y="98" width="394" height="754"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHW-jE-gUi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-u4-ARA">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-u4-ARA">
-                                        <rect key="frame" x="0.0" y="20.5" width="414" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4re-pP-O3a">
-                                        <rect key="frame" x="0.0" y="41" width="414" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="394" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KnG-zK-z67">
-                                        <rect key="frame" x="0.0" y="61.5" width="414" height="712.5"/>
+                                        <rect key="frame" x="0.0" y="61" width="394" height="693"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="755-cg-g5c" firstAttribute="trailing" secondItem="Q8p-5J-qtM" secondAttribute="trailing" id="6K6-lz-Qfm"/>
-                            <constraint firstItem="Q8p-5J-qtM" firstAttribute="leading" secondItem="755-cg-g5c" secondAttribute="leading" id="IRW-cS-xTK"/>
-                            <constraint firstItem="Q8p-5J-qtM" firstAttribute="top" secondItem="755-cg-g5c" secondAttribute="top" id="MRF-oF-JEy"/>
-                            <constraint firstItem="755-cg-g5c" firstAttribute="bottom" secondItem="Q8p-5J-qtM" secondAttribute="bottom" id="tXr-RT-w3d"/>
+                            <constraint firstItem="Q8p-5J-qtM" firstAttribute="top" secondItem="755-cg-g5c" secondAttribute="top" constant="10" id="LKA-zj-ifW"/>
+                            <constraint firstAttribute="trailing" secondItem="Q8p-5J-qtM" secondAttribute="trailing" constant="10" id="LaW-XT-JvY"/>
+                            <constraint firstItem="Q8p-5J-qtM" firstAttribute="leading" secondItem="755-cg-g5c" secondAttribute="leading" constant="10" id="QF9-Ba-Ucs"/>
+                            <constraint firstItem="755-cg-g5c" firstAttribute="bottom" secondItem="Q8p-5J-qtM" secondAttribute="bottom" constant="10" id="nds-15-Ahq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="755-cg-g5c"/>
                     </view>
@@ -175,7 +169,6 @@
                         <outlet property="movieGenreLabel" destination="4re-pP-O3a" id="Twg-xD-6Y2"/>
                         <outlet property="movieOverviewLabel" destination="Uqg-u4-ARA" id="Z1e-29-Dzc"/>
                         <outlet property="moviePosterImageView" destination="KnG-zK-z67" id="mxq-UG-8bu"/>
-                        <outlet property="movieTitleLabel" destination="xHW-jE-gUi" id="Iro-ua-KAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60g-A4-FuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

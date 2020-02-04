@@ -49,7 +49,7 @@ class DetailViewModel {
                 genres += ", \(genreName)"
             }
         }
-        return genres
+        return "Genres: \(genres)"
     }
 
 }

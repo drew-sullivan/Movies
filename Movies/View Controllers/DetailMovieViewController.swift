@@ -11,7 +11,6 @@ import UIKit
 class DetailMovieViewController: UIViewController {
     
     @IBOutlet weak var moviePosterImageView: UIImageView!
-    @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieOverviewLabel: UILabel!
     @IBOutlet weak var movieGenreLabel: UILabel!
 
@@ -20,6 +19,10 @@ class DetailMovieViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        movieOverviewLabel.text = viewModel.movieOverview
+        movieGenreLabel.text = viewModel.movieGenres
+        navigationItem.title = viewModel.movieTitle
 
         movieStore.fetchPosterImage(for: viewModel.movie) { (imageResult) in
             switch imageResult {
