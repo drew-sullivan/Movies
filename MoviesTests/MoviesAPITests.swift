@@ -11,6 +11,19 @@ import XCTest
 
 class MoviesAPITests: XCTestCase {
 
+    var movie: Movie!
+
+    override func setUp() {
+        super.setUp()
+
+        movie = Movie(popularity: 0.0, voteCount: 0, video: false, posterPath: "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", id: 1, adult: false, backdropPath: "", originalLanguage: OriginalLanguage.en, originalTitle: "", genreIDS: [Int](), title: "", voteAverage: 0.0, overview: "", releaseDate: "")
+    }
+
+    override func tearDown() {
+
+        super.tearDown()
+    }
+
     func test_topRatedMoviesURL_usesExpectedHost() {
         let moviesAPIurlComponents = URLComponents(url: MoviesAPI.topRatedMoviesURL, resolvingAgainstBaseURL: false)
         XCTAssertEqual(moviesAPIurlComponents?.host, "api.themoviedb.org")
@@ -61,27 +74,19 @@ class MoviesAPITests: XCTestCase {
         XCTAssertTrue(containsQueryItem)
     }
 
+    func test_moviePosterImageURL_usesExpectedHost() {
+        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath), resolvingAgainstBaseURL: false)
+        XCTAssertEqual(moviesAPIurlComponents?.host, "image.tmdb.org")
+    }
+
+    func test_moviePosterImageURL_usesExpectedPath() {
+        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath), resolvingAgainstBaseURL: false)
+        XCTAssertEqual(moviesAPIurlComponents?.path, "/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg")
+    }
+
+    func test_test_moviePosterImageURL_generatesExpectedURL() {
+        let posterURL = MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath)
+        XCTAssertEqual(posterURL, URL(string: "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg")!)
+    }
+
 }
-
-
-// this will go in the store
-//protocol SessionProtocol {
-//    func dataTask(with url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-//}
-
-
-//extension MoviesAPITests {
-//
-//    let mockURLSession = MockURLSession()
-//    sut.session = mockURLSession
-//
-//    class MockURLSession {
-//        var url: URL?
-//
-//        func dataTask(with url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-//            self.url = url
-//            return URLSession.shared.dataTask(with: url)
-//        }
-//    }
-//
-//}
