@@ -8,20 +8,6 @@
 
 import Foundation
 
-struct MoviesMeta: Decodable {
-    let page: Int
-    let totalResults: Int
-    let totalPages: Int
-    let movies: [Movie]
-
-    enum CodingKeys: String, CodingKey {
-        case page
-        case totalResults = "total_results"
-        case totalPages = "total_pages"
-        case movies = "results"
-    }
-}
-
 struct Movie: Decodable {
     let popularity: Double
     let voteCount: Int
@@ -53,6 +39,21 @@ struct Movie: Decodable {
         case voteAverage = "vote_average"
         case overview
         case releaseDate = "release_date"
+    }
+}
+
+/// Wrapper for matching returned JSON
+struct MoviesMeta: Decodable {
+    let page: Int
+    let totalResults: Int
+    let totalPages: Int
+    let movies: [Movie]
+
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case movies = "results"
     }
 }
 

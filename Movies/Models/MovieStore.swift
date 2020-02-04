@@ -18,9 +18,13 @@ enum WebServiceError: Error {
     case responseError
 }
 
+protocol SessionProtocol {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
 class MovieStore {
 
-    private let session: URLSession = {
+    lazy var session: SessionProtocol = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
@@ -55,4 +59,7 @@ class MovieStore {
     private func processMoviesRequest(_ jsonData: Data) -> MovieResult {
         return MoviesAPI.movies(jsonData)
     }
+
 }
+
+extension URLSession: SessionProtocol { }
