@@ -62,26 +62,3 @@ class MoviesAPITests: XCTestCase {
     }
 
 }
-
-
-// this will go in the store
-//protocol SessionProtocol {
-//    func dataTask(with url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-//}
-
-
-//extension MoviesAPITests {
-//
-//    let mockURLSession = MockURLSession()
-//    sut.session = mockURLSession
-//
-//    class MockURLSession {
-//        var url: URL?
-//
-//        func dataTask(with url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-//            self.url = url
-//            return URLSession.shared.dataTask(with: url)
-//        }
-//    }
-//
-//}

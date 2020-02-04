@@ -8,11 +8,12 @@
 
 import Foundation
 
-//- [ ] Top rated movies (from 2020 - https://api.themoviedb.org/3/discover/movie?primary_release_year=2020&sort_by=vote_average.desc&region=US&api_key=66be1732d5639d9978db6f80685fcccd)
-//- [ ] Upcoming movies (https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2020-03-02&region=US&api_key=66be1732d5639d9978db6f80685fcccd)
-//- [ ] Now playing movies (https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2019-10-01&region=US&api_key=66be1732d5639d9978db6f80685fcccd)
-//- [ ] Popular movies (https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&region=US&api_key=66be1732d5639d9978db6f80685fcccd)
-
+enum MovieListType {
+    case topRated
+    case upcoming
+    case nowPlaying
+    case popular
+}
 
 struct MoviesAPI {
 
@@ -33,6 +34,7 @@ struct MoviesAPI {
         case sortByVoteAverage = "vote_average.desc"
     }
 
+    /// Constants
     private static let baseURLString = "https://api.themoviedb.org/3/discover/movie"
     private static let apiKey = "66be1732d5639d9978db6f80685fcccd"
     private static let region = "US"
@@ -97,6 +99,16 @@ struct MoviesAPI {
             MovieQueryKey.sortBy: MovieQueryValue.sortByPopularity
         ]
         return buildURL(parameters: params)
+    }
+
+    static func movies(_ data: Data) -> MovieResult {
+        do {
+            let decoder = JSONDecoder()
+            let meta = try decoder.decode(MoviesMeta.self, from: data)
+            return .success(meta.movies)
+        } catch let e {
+            return .failure(e)
+        }
     }
     
 }
