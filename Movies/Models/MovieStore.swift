@@ -34,6 +34,8 @@ protocol SessionProtocol {
 
 class MovieStore {
 
+    let imageCache = ImageCache()
+
     lazy var session: SessionProtocol = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
@@ -64,6 +66,14 @@ class MovieStore {
 
     func fetchPosterImage(for movie: Movie, completion: @escaping (ImageResult) -> Void) {
         let posterImageURL = movie.posterImageURL
+
+        if let image = imageCache.image(forKey: posterImageURL) {
+            OperationQueue.main.addOperation {
+                completion(.success(image))
+            }
+            return
+        }
+
         let dataTask = session.dataTask(with: posterImageURL) { (data, response, error) in
             DispatchQueue.main.async {
                 guard error == nil else {
@@ -72,6 +82,11 @@ class MovieStore {
                 }
 
                 let imageResult = self.processImageRequest(data, error: error)
+
+                if case let .success(image) = imageResult {
+                    self.imageCache.setImage(image, forKey: posterImageURL)
+                }
+
                 completion(imageResult)
             }
         }

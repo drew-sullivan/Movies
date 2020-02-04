@@ -73,8 +73,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="WV9-h3-Ub0" firstAttribute="leading" secondItem="TG8-5E-hk7" secondAttribute="leadingMargin" constant="10" id="Jdh-ot-5fe"/>
+                                        <constraint firstItem="WV9-h3-Ub0" firstAttribute="leading" secondItem="TG8-5E-hk7" secondAttribute="leadingMargin" constant="10" id="Acv-p7-QBZ"/>
                                         <constraint firstItem="WV9-h3-Ub0" firstAttribute="centerY" secondItem="TG8-5E-hk7" secondAttribute="centerY" id="ca9-MG-TEF"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WV9-h3-Ub0" secondAttribute="trailing" id="zSr-h0-4Vk"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="sectionTitle" destination="WV9-h3-Ub0" id="Qea-Gr-og4"/>
