@@ -47,6 +47,25 @@ class MovieStoreTests: XCTestCase {
         }
     }
 
+    func test_fetchingMovieMetadata_whenJSONIsInvalid_returnsError() {
+        mockURLSession = MockURLSession(data: Data(), urlResponse: nil, error: nil)
+        sut.session = mockURLSession
+        let errorExpectation = expectation(description: "Error")
+        var caughtError: Error? = nil
+        sut.fetchMovieMetadata(byMovieListType: .nowPlaying) { (movieResult) in
+            switch movieResult {
+                case .success(let _):
+                    XCTFail("This should have thrown an error")
+                case .failure(let error):
+                    caughtError = error
+                    errorExpectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 1) { error in
+            XCTAssertNotNil(caughtError)
+        }
+    }
+
 }
 
 extension MovieStoreTests {
