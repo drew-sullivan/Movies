@@ -57,7 +57,7 @@ extension MovieViewController: UICollectionViewDelegate {
                 case let .success(image) = imageResult else { return }
             let movieIndexPath = IndexPath(item: movieIndex, section: indexPath.section)
             if let cell = self.moviesCollectionView.cellForItem(at: movieIndexPath) as? MovieCell {
-                cell.update(with: image)
+                cell.update(with: image, movie: movie)
             }
         }
     }
