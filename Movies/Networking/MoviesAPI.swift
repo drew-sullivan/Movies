@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum MovieListType {
-    case topRated
-    case upcoming
-    case nowPlaying
-    case popular
+enum MovieListType: String, CaseIterable {
+    case topRated = "Top Rated"
+    case upcoming = "Upcoming"
+    case nowPlaying = "Now Playing"
+    case popular = "Popular"
 }
 
 struct MoviesAPI {
@@ -104,8 +104,11 @@ struct MoviesAPI {
 
     /// Creates the URL needed to access a movie poster
     /// - Parameter posterPath: posterPath from Movie object
-    static func moviePosterImageURL(fromPosterPath posterPath: String) -> URL {
-        return URL(string: "\(imageBaseURLString)\(posterPath)")!
+    static func moviePosterImageURL(from posterPath: String?) -> URL {
+        guard let path = posterPath else {
+            return URL(string: "https://via.placeholder.com/150/000000/FFFFFF/?text=No+Poster+Available")!
+        }
+        return URL(string: "\(imageBaseURLString)\(path)")!
     }
 
     /// Converts JSON to Movie objects

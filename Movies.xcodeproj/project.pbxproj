@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C831AF7723E9E62A00FFFD7A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7623E9E62A00FFFD7A /* MovieCell.swift */; };
+		C831AF7923E9F65500FFFD7A /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7823E9F65500FFFD7A /* SectionHeader.swift */; };
+		C831AF7B23E9FCB700FFFD7A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7A23E9FCB700FFFD7A /* ImageCache.swift */; };
+		C8BD938B23E9C95300E9FC02 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */; };
+		C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */; };
 		C8D5BE0C23E8DE06002BFEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */; };
 		C8D5BE0E23E8DE06002BFEA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5BE0D23E8DE06002BFEA4 /* SceneDelegate.swift */; };
 		C8D5BE1323E8DE06002BFEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D5BE1123E8DE06002BFEA4 /* Main.storyboard */; };
@@ -39,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C831AF7623E9E62A00FFFD7A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		C831AF7823E9F65500FFFD7A /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		C831AF7A23E9FCB700FFFD7A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
+		C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSection.swift; sourceTree = "<group>"; };
 		C8D5BE0823E8DE06002BFEA4 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D5BE0D23E8DE06002BFEA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,8 +160,13 @@
 		C8E9B66C23E919EB00D5D941 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C831AF7A23E9FCB700FFFD7A /* ImageCache.swift */,
 				C8E9B66A23E919CA00D5D941 /* MovieStore.swift */,
 				C8E9B66F23E91AF400D5D941 /* Movie.swift */,
+				C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */,
+				C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */,
+				C831AF7623E9E62A00FFFD7A /* MovieCell.swift */,
+				C831AF7823E9F65500FFFD7A /* SectionHeader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,11 +310,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C831AF7B23E9FCB700FFFD7A /* ImageCache.swift in Sources */,
 				C8E9B66B23E919CA00D5D941 /* MovieStore.swift in Sources */,
 				C8D5BE0C23E8DE06002BFEA4 /* AppDelegate.swift in Sources */,
+				C831AF7923E9F65500FFFD7A /* SectionHeader.swift in Sources */,
+				C831AF7723E9E62A00FFFD7A /* MovieCell.swift in Sources */,
+				C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */,
 				C8D5BE0E23E8DE06002BFEA4 /* SceneDelegate.swift in Sources */,
 				C8D5BE3C23E8E39E002BFEA4 /* MoviesAPI.swift in Sources */,
 				C8E9B67023E91AF400D5D941 /* Movie.swift in Sources */,
+				C8BD938B23E9C95300E9FC02 /* MovieDataSource.swift in Sources */,
 				C8E9B67523E91E8300D5D941 /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,7 +582,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.allegion.MoviesUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drew-sullivan.MoviesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,7 +602,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.allegion.MoviesUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drew-sullivan.MoviesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

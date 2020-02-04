@@ -20,6 +20,7 @@ class MoviesAPITests: XCTestCase {
     }
 
     override func tearDown() {
+        movie = nil
 
         super.tearDown()
     }
@@ -75,17 +76,17 @@ class MoviesAPITests: XCTestCase {
     }
 
     func test_moviePosterImageURL_usesExpectedHost() {
-        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath), resolvingAgainstBaseURL: false)
+        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(from: movie.posterPath), resolvingAgainstBaseURL: false)
         XCTAssertEqual(moviesAPIurlComponents?.host, "image.tmdb.org")
     }
 
     func test_moviePosterImageURL_usesExpectedPath() {
-        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath), resolvingAgainstBaseURL: false)
+        let moviesAPIurlComponents = URLComponents(url: MoviesAPI.moviePosterImageURL(from: movie.posterPath), resolvingAgainstBaseURL: false)
         XCTAssertEqual(moviesAPIurlComponents?.path, "/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg")
     }
 
     func test_test_moviePosterImageURL_generatesExpectedURL() {
-        let posterURL = MoviesAPI.moviePosterImageURL(fromPosterPath: movie.posterPath)
+        let posterURL = MoviesAPI.moviePosterImageURL(from: movie.posterPath)
         XCTAssertEqual(posterURL, URL(string: "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg")!)
     }
 

@@ -3,7 +3,7 @@
 //  Movies
 //
 //  Created by Drew Sullivan on 2/3/20.
-//  Copyright © 2020 Allegion, LLC. All rights reserved.
+//  Copyright © 2020 Drew Sullivan. All rights reserved.
 //
 
 import UIKit
@@ -18,19 +18,30 @@ enum WebServiceError: Error {
     case responseError
 }
 
+enum ImageResult {
+    case success(UIImage)
+    case failure(Error)
+}
+
+enum PhotoError: Error {
+    case imageCreationError
+}
+
+/// Abstracted for testing
 protocol SessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
 class MovieStore {
 
+    let imageCache = ImageCache()
+
     lazy var session: SessionProtocol = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
 
-    func fetchMovieMetadata(byMovieListType movieListType: MovieListType, completion: @escaping (MovieResult) -> Void) {
-
+    func fetchMovieMetadata(by movieListType: MovieListType, completion: @escaping (MovieResult) -> Void) {
         var url: URL
         switch movieListType {
             case .topRated: url = MoviesAPI.topRatedMoviesURL
@@ -45,21 +56,63 @@ class MovieStore {
                 return
             }
 
-            guard let data = data else {
-                completion(.failure(WebServiceError.dataEmptyError))
-                return
+            let movieResult = self.processMoviesRequest(data, error: error)
+            DispatchQueue.main.async {
+                completion(movieResult)
             }
-            
-            let movieResult = self.processMoviesRequest(data)
-            completion(movieResult)
         }
         dataTask.resume()
     }
 
-    private func processMoviesRequest(_ jsonData: Data) -> MovieResult {
-        return MoviesAPI.movies(jsonData)
+    func fetchPosterImage(for movie: Movie, completion: @escaping (ImageResult) -> Void) {
+        let posterImageURL = movie.posterImageURL
+
+        if let image = imageCache.image(forKey: posterImageURL) {
+            OperationQueue.main.addOperation {
+                completion(.success(image))
+            }
+            return
+        }
+
+        let dataTask = session.dataTask(with: posterImageURL) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(.failure(WebServiceError.responseError))
+                    return
+                }
+
+                let imageResult = self.processImageRequest(data, error: error)
+
+                if case let .success(image) = imageResult {
+                    self.imageCache.setImage(image, forKey: posterImageURL)
+                }
+
+                completion(imageResult)
+            }
+        }
+        dataTask.resume()
+    }
+
+    private func processMoviesRequest(_ jsonData: Data?, error: Error?) -> MovieResult {
+        guard let data = jsonData else {
+            return .failure(WebServiceError.dataEmptyError)
+        }
+        return MoviesAPI.movies(data)
+    }
+
+    private func processImageRequest(_ jsonData: Data?, error: Error?) -> ImageResult {
+        guard let data = jsonData else {
+            return .failure(WebServiceError.dataEmptyError)
+        }
+
+        guard let image = UIImage(data: data) else {
+            return .failure(PhotoError.imageCreationError)
+        }
+
+        return .success(image)
     }
 
 }
 
+/// For testing
 extension URLSession: SessionProtocol { }
