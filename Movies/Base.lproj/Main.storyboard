@@ -21,13 +21,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="HT0-lf-RsI">
                                     <size key="itemSize" width="200" height="300"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="lQo-FI-lBm" customClass="MovieCell" customModule="Movies" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="2" width="200" height="300"/>
+                                        <rect key="frame" x="2" y="52" width="200" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="owH-co-cFZ">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
@@ -61,6 +61,25 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="TG8-5E-hk7" customClass="SectionHeader" customModule="Movies" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WV9-h3-Ub0">
+                                            <rect key="frame" x="18" y="14.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="WV9-h3-Ub0" firstAttribute="leading" secondItem="TG8-5E-hk7" secondAttribute="leadingMargin" constant="10" id="Jdh-ot-5fe"/>
+                                        <constraint firstItem="WV9-h3-Ub0" firstAttribute="centerY" secondItem="TG8-5E-hk7" secondAttribute="centerY" id="ca9-MG-TEF"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="sectionTitle" destination="WV9-h3-Ub0" id="Qea-Gr-og4"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

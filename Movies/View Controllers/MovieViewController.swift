@@ -28,7 +28,6 @@ class MovieViewController: UIViewController {
             movieStore.fetchMovieMetadata(by: movieListType) { (movieResult) in
                 switch movieResult {
                     case .success(let movies):
-                        print("Count: \(movies.count)")
                         let movieSection = MovieSection(name: movieListType, movies: movies)
                         self.movieDataSource.moviesBySection.append(movieSection)
                     case .failure(let error):
@@ -41,7 +40,10 @@ class MovieViewController: UIViewController {
     }
 
     private func notifyUser(ofError error: Error) {
-        print(error)
+        let alertController = UIAlertController(title: "Error:", message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
     }
     
 }

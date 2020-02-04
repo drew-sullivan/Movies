@@ -12,7 +12,7 @@ class MovieDataSource: NSObject, UICollectionViewDataSource {
 
     var moviesBySection = [MovieSection]()
 
-    private func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return moviesBySection.count
     }
 
@@ -29,6 +29,14 @@ class MovieDataSource: NSObject, UICollectionViewDataSource {
         let identifier = "MovieCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MovieCell
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader {
+            sectionHeader.sectionTitle.text = moviesBySection[indexPath.section].name.rawValue
+            return sectionHeader
+        }
+        return UICollectionReusableView()
     }
 
 }
