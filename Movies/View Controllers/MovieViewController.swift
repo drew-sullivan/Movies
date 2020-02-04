@@ -45,6 +45,19 @@ class MovieViewController: UIViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true)
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+            case "ShowMovie"?:
+            if let selectedIndexPath = moviesCollectionView.indexPathsForSelectedItems?.first {
+                let movie = movieDataSource.moviesBySection[selectedIndexPath.section].movies[selectedIndexPath.row]
+                let destinationVC = segue.destination as! DetailMovieViewController
+                destinationVC.movie = movie
+                destinationVC.movieStore = movieStore
+            }
+            default: preconditionFailure("Unexpected segue identifier.")
+        }
+    }
     
 }
 
