@@ -11,9 +11,5 @@ import UIKit
 class SectionHeader: UICollectionReusableView {
 
     @IBOutlet weak var sectionTitle: UILabel!
-
-    func config(_ indexPath: IndexPath) {
-        sectionTitle.textColor = .black
-    }
     
 }
