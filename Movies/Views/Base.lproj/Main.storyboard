@@ -78,6 +78,7 @@
                                             <outlet property="imageView" destination="2Da-yX-XAX" id="2Dv-7n-c8p"/>
                                             <outlet property="movieTitleLabel" destination="gbx-zh-syf" id="tge-dp-tGq"/>
                                             <outlet property="spinner" destination="xBY-er-5wx" id="7E6-9c-dYq"/>
+                                            <outlet property="titleView" destination="NgD-gj-Aey" id="wKr-Ah-UZY"/>
                                             <segue destination="TW3-BE-IOP" kind="show" identifier="ShowMovie" id="3rr-9Y-JmC"/>
                                         </connections>
                                     </collectionViewCell>
@@ -93,7 +94,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.82253711445359468" blue="0.79205661278499684" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="WV9-h3-Ub0" firstAttribute="leading" secondItem="TG8-5E-hk7" secondAttribute="leadingMargin" constant="10" id="Acv-p7-QBZ"/>
                                         <constraint firstItem="WV9-h3-Ub0" firstAttribute="centerY" secondItem="TG8-5E-hk7" secondAttribute="centerY" id="ca9-MG-TEF"/>
