@@ -125,6 +125,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C831AF9623EA7DA000FFFD7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C8D5BE1123E8DE06002BFEA4 /* Main.storyboard */,
+				C8D5BE1623E8DE07002BFEA4 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C831AF9723EA7DB300FFFD7A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */,
+				C8D5BE0D23E8DE06002BFEA4 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C8D5BDFF23E8DE06002BFEA4 = {
 			isa = PBXGroup;
 			children = (
@@ -148,16 +166,14 @@
 		C8D5BE0A23E8DE06002BFEA4 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				C831AF9723EA7DB300FFFD7A /* Supporting Files */,
+				C831AF9623EA7DA000FFFD7A /* Views */,
 				C831AF8723EA369000FFFD7A /* Extensions */,
 				C831AF8423EA28CF00FFFD7A /* View Models */,
 				C8E9B67323E91E6500D5D941 /* View Controllers */,
 				C8E9B66C23E919EB00D5D941 /* Models */,
 				C8D5BE3F23E8E559002BFEA4 /* Networking */,
-				C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */,
-				C8D5BE0D23E8DE06002BFEA4 /* SceneDelegate.swift */,
-				C8D5BE1123E8DE06002BFEA4 /* Main.storyboard */,
 				C8D5BE1423E8DE07002BFEA4 /* Assets.xcassets */,
-				C8D5BE1623E8DE07002BFEA4 /* LaunchScreen.storyboard */,
 				C8D5BE1923E8DE07002BFEA4 /* Info.plist */,
 			);
 			path = Movies;

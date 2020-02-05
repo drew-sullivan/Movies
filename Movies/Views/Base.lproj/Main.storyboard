@@ -109,7 +109,7 @@
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EU1-g5-urw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bj4-pL-F6z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EU1-g5-urw" secondAttribute="trailing" id="k6s-F5-EUO"/>
