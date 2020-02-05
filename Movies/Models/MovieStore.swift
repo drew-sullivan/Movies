@@ -34,7 +34,7 @@ protocol SessionProtocol {
 
 class MovieStore {
 
-    let imageCache = ImageCache()
+    private let imageCache = ImageCache()
 
     lazy var session: SessionProtocol = {
         let config = URLSessionConfiguration.default

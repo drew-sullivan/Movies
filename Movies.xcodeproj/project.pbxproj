@@ -12,7 +12,10 @@
 		C831AF7B23E9FCB700FFFD7A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7A23E9FCB700FFFD7A /* ImageCache.swift */; };
 		C831AF7D23EA0B4A00FFFD7A /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7C23EA0B4A00FFFD7A /* DetailMovieViewController.swift */; };
 		C831AF7F23EA168700FFFD7A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF7E23EA168700FFFD7A /* DetailViewModel.swift */; };
-		C831AF8323EA1D0400FFFD7A /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF8223EA1D0400FFFD7A /* Genre.swift */; };
+		C831AF8923EA36AE00FFFD7A /* UIAlertController+errorWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF8823EA36AE00FFFD7A /* UIAlertController+errorWarning.swift */; };
+		C831AF8B23EA36FA00FFFD7A /* MovieViewController+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF8A23EA36FA00FFFD7A /* MovieViewController+CollectionViewDelegate.swift */; };
+		C831AF8D23EA377500FFFD7A /* MovieAPI+StaticGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF8C23EA377500FFFD7A /* MovieAPI+StaticGenres.swift */; };
+		C831AF9123EA47B400FFFD7A /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831AF9023EA47B400FFFD7A /* UIViewController+ErrorAlert.swift */; };
 		C8BD938B23E9C95300E9FC02 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */; };
 		C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */; };
 		C8D5BE0C23E8DE06002BFEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5BE0B23E8DE06002BFEA4 /* AppDelegate.swift */; };
@@ -52,7 +55,10 @@
 		C831AF7A23E9FCB700FFFD7A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C831AF7C23EA0B4A00FFFD7A /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		C831AF7E23EA168700FFFD7A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		C831AF8223EA1D0400FFFD7A /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		C831AF8823EA36AE00FFFD7A /* UIAlertController+errorWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+errorWarning.swift"; sourceTree = "<group>"; };
+		C831AF8A23EA36FA00FFFD7A /* MovieViewController+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieViewController+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		C831AF8C23EA377500FFFD7A /* MovieAPI+StaticGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieAPI+StaticGenres.swift"; sourceTree = "<group>"; };
+		C831AF9023EA47B400FFFD7A /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		C8BD938A23E9C95300E9FC02 /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
 		C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSection.swift; sourceTree = "<group>"; };
 		C8D5BE0823E8DE06002BFEA4 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +114,17 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		C831AF8723EA369000FFFD7A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C831AF8823EA36AE00FFFD7A /* UIAlertController+errorWarning.swift */,
+				C831AF8A23EA36FA00FFFD7A /* MovieViewController+CollectionViewDelegate.swift */,
+				C831AF8C23EA377500FFFD7A /* MovieAPI+StaticGenres.swift */,
+				C831AF9023EA47B400FFFD7A /* UIViewController+ErrorAlert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C8D5BDFF23E8DE06002BFEA4 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +148,7 @@
 		C8D5BE0A23E8DE06002BFEA4 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				C831AF8723EA369000FFFD7A /* Extensions */,
 				C831AF8423EA28CF00FFFD7A /* View Models */,
 				C8E9B67323E91E6500D5D941 /* View Controllers */,
 				C8E9B66C23E919EB00D5D941 /* Models */,
@@ -182,7 +200,6 @@
 				C8BD938C23E9CAD900E9FC02 /* MovieSection.swift */,
 				C831AF7623E9E62A00FFFD7A /* MovieCell.swift */,
 				C831AF7823E9F65500FFFD7A /* SectionHeader.swift */,
-				C831AF8223EA1D0400FFFD7A /* Genre.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,14 +350,17 @@
 				C831AF7923E9F65500FFFD7A /* SectionHeader.swift in Sources */,
 				C831AF7D23EA0B4A00FFFD7A /* DetailMovieViewController.swift in Sources */,
 				C831AF7723E9E62A00FFFD7A /* MovieCell.swift in Sources */,
+				C831AF9123EA47B400FFFD7A /* UIViewController+ErrorAlert.swift in Sources */,
 				C8BD938D23E9CAD900E9FC02 /* MovieSection.swift in Sources */,
+				C831AF8D23EA377500FFFD7A /* MovieAPI+StaticGenres.swift in Sources */,
 				C8D5BE0E23E8DE06002BFEA4 /* SceneDelegate.swift in Sources */,
 				C8D5BE3C23E8E39E002BFEA4 /* MoviesAPI.swift in Sources */,
 				C831AF7F23EA168700FFFD7A /* DetailViewModel.swift in Sources */,
 				C8E9B67023E91AF400D5D941 /* Movie.swift in Sources */,
 				C8BD938B23E9C95300E9FC02 /* MovieDataSource.swift in Sources */,
+				C831AF8923EA36AE00FFFD7A /* UIAlertController+errorWarning.swift in Sources */,
+				C831AF8B23EA36FA00FFFD7A /* MovieViewController+CollectionViewDelegate.swift in Sources */,
 				C8E9B67523E91E8300D5D941 /* MovieViewController.swift in Sources */,
-				C831AF8323EA1D0400FFFD7A /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,7 +37,7 @@ class DetailViewModel {
     private func formatGenres(_ genreIDs: [Int]) -> String {
         if genreIDs.count < 1 { return "" }
         if genreIDs.count == 1, let genre = MoviesAPI.genres[genreIDs[0]] {
-            return genre
+            return "Genre: \(genre)"
         }
         var genres = ""
         for i in 0..<genreIDs.count {
