@@ -3,14 +3,20 @@
 //  Movies
 //
 //  Created by Drew Sullivan on 2/4/20.
-//  Copyright © 2020 Allegion, LLC. All rights reserved.
+//  Copyright © 2020 Drew Sullivan. All rights reserved.
 //
 
 import UIKit
 
 class MovieDataSource: NSObject, UICollectionViewDataSource {
 
-    var moviesBySection = [MovieSection]()
+    var moviesBySection = [MovieSection]() {
+        didSet {
+            if self.moviesBySection.count == MovieListType.allCases.count {
+                self.moviesBySection = self.moviesBySection.sorted { $0 < $1 }
+            }
+        }
+    }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return moviesBySection.count

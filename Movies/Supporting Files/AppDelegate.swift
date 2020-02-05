@@ -3,7 +3,7 @@
 //  Movies
 //
 //  Created by Drew Sullivan on 2/3/20.
-//  Copyright © 2020 Drew Sullivan, LLC. All rights reserved.
+//  Copyright © 2020 Drew Sullivan. All rights reserved.
 //
 
 import UIKit
@@ -33,8 +33,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 
-
-
-
 }
-
