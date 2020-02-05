@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct MovieSection {
+struct MovieSection: Comparable {
     var name: MovieListType
     var movies: [Movie]
+
+    static func <(lhs: MovieSection, rhs: MovieSection) -> Bool {
+        return lhs.name.rawValue < rhs.name.rawValue
+    }
 }
