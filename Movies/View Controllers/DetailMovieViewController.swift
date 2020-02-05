@@ -29,14 +29,9 @@ class DetailMovieViewController: UIViewController {
                 case .success(let image):
                     self.moviePosterImageView.image = image
                 case .failure(let error):
-                    self.showError(error)
+                    self.notifyUser(of: error)
             }
         }
-    }
-
-    private func showError(_ error: Error) {
-        let okAlertController = UIAlertController.errorWarning(given: error)
-        self.present(okAlertController, animated: true)
     }
 
 }

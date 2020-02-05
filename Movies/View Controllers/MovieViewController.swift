@@ -31,24 +31,12 @@ class MovieViewController: UIViewController {
                         let movieSection = MovieSection(name: movieListType, movies: movies)
                         self.movieDataSource.moviesBySection.append(movieSection)
                     case .failure(let error):
-                        self.notifyUser(ofError: error)
+                        self.notifyUser(of: error)
                         self.movieDataSource.moviesBySection = [MovieSection]()
                 }
                 self.moviesCollectionView.reloadData()
             }
         }
-    }
-
-    private func notifyUser(of error: Error) {
-        let okAlertController = UIAlertController.errorWarning(given: error)
-        self.present(okAlertController, animated: true)
-    }
-
-    private func notifyUser(ofError error: Error) {
-        let alertController = UIAlertController(title: "Error:", message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
